@@ -1,6 +1,22 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+    justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  overflow: auto;
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-top: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: larger;
 }

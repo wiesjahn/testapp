@@ -1,3 +1,9 @@
 <div class="container">
-  <button (click)="doathing()" class="btn btn-primary">Do a thing</button>
+  <button (click)="getImageFromFlutter()" class="btn btn-primary">Pick an Image</button>
+  <div *ngIf="image != ''">
+    <img class="img" src="data:image/webp;base64,{{image}}" />
+    <div *ngFor="let key of objectKeys(this.exif)">
+      <strong>{{ key }}:</strong> {{ this.exif[key] }}
+    </div>
+  </div>
 </div>

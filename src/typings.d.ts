@@ -1,5 +1,3 @@
 interface Window {
-  ActionChannel: {
-    postMessage: (message: string) => void;
-  };
+  flutter_inappwebview: any;
 }
