@@ -1,11 +1,11 @@
 <div class="container">
   <button (click)="getImageFromFlutter()" class="btn btn-primary">Pick an Image</button>
-  <div *ngIf="image.image != ''">
+  <div *ngIf="this.imageGroup.length != 0">
     <div *ngFor="let image of this.imageGroup">
       <img class="img" src="data:image/webp;base64,{{image.image}}" />
-      <div *ngFor="let key of objectKeys(image.exif)">
+      <!-- <div *ngFor="let key of objectKeys(image.exif)">
         <strong>{{ key }}:</strong> {{ image.exif[key] }}
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

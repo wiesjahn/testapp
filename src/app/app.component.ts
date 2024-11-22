@@ -30,7 +30,7 @@ export class AppComponent {
      const result: Image[] = await this.messageService.recieveImageFromFlutter();
      result.forEach((image: Image) => {
         this.image.image = image.image;
-        this.image.exif = JSON.parse(image.exif);
+        // this.image.exif = JSON.parse(image.exif);
         this.imageGroup.push(this.image); 
      });
   }
