@@ -14,7 +14,7 @@ export class AppComponent {
   
   title = 'testapp';
   
-  @Output() image = ''
+  @Output() imageGroup: any = [];
   @Output() exif: any;
   constructor(private messageService: MessageService) {
   
@@ -23,8 +23,14 @@ export class AppComponent {
   public async getImageFromFlutter(){
     if(window.flutter_inappwebview){
       const result = await this.messageService.recieveImageFromFlutter();
-      this.image= result.image;
-      this.exif = JSON.parse(result.exif);
+      result.forEach((image: any) => {
+        const imageObj = {
+          "image": image.image,
+          "exif": JSON.parse(image.exif)
+        }
+        this.imageGroup.push(imageObj);
+      });
+      
     }else{
       console.log('Not in app');
     }
