@@ -21,9 +21,13 @@ export class AppComponent {
     
   }
   public async getImageFromFlutter(){
-     const result = await this.messageService.recieveImageFromFlutter();
-    this.image= result.image;
-     this.exif = JSON.parse(result.exif);
+    if(window.flutter_inappwebview){
+      const result = await this.messageService.recieveImageFromFlutter();
+      this.image= result.image;
+      this.exif = JSON.parse(result.exif);
+    }else{
+      console.log('Not in app');
+    }
   }
   
   objectKeys(obj: any): string[] {
